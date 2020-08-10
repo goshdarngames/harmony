@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="lib/pixi.js" ></script>
+
+        <script src="harmony/harmony_init.js" ></script>
+
+        <link rel="stylesheet" type="text/css" href="harmony.css" />
+
+        <script type="text/javascript">
+
+            window.onload = function ()
+            {
+                let harmony_data = 
+                {
+                    canvas_size      : 1024,
+                    grid_size        : 16,
+                    scale_coord      : ( c ) => c * 64,
+                    scale_screen_pos : ( c ) => Math.floor ( c / 64 ),
+                };
+
+                //initialize pixi
+
+                harmony_data.pixi = PIXI;
+
+                harmony_data.pixi_app =  
+                    window.harmony.init_pixi 
+                        ( PIXI, document, harmony_data );
+
+                console.log ( "Runtime loaded." );
+
+            };
+
+        </script>
+    </head>
+    <body>
+
+        <div id="root_container">
+
+            <div id="harmony_canvas_div">
+
+                <canvas id="pixi_canvas"></canvas>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
